@@ -8,10 +8,26 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// app.get("/todos", function (req, res) {
+//   knex.raw("SELECT * FROM todos").then(function (todos) {
+//     res.send(todos.rows);
+//   });
+// });
+
+// app.get("/todos", function (req, res) {
+//   knex.raw("SELECT * FROM todos where id = 1").then(function (todo) {
+//     res.send(todo.rows);
+//   });
+// });
+
 app.get("/todos", function (req, res) {
-  knex.raw("SELECT * FROM todos").then(function (todos) {
-    res.send(todos);
-  });
+  knex
+    .select()
+    .from("todos")
+    .where("id", 1)
+    .then(function (todo) {
+      res.send(todo);
+    });
 });
 
 app.listen(port, function () {
