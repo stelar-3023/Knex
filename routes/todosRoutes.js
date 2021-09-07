@@ -6,6 +6,9 @@ var knex = require("../db/knex");
 router.get("/", function (req, res, next) {
   knex.raw("SELECT * from todos").then(function (todos) {
     res.send(todos.rows);
+  })
+  .catch(function (err) {
+    res.send(err);
   });
 });
 
