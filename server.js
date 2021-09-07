@@ -17,6 +17,9 @@ app.get("/todos", function (req, res) {
     .from("todos")
     .then(function (todos) {
       res.send(todos);
+    })
+    .catch(function (err) {
+      res.send(err);
     });
 });
 
@@ -28,9 +31,10 @@ app.get("/todos-of-user/:id", function (req, res) {
     .where(knex.raw("users.id = ?", [req.params.id]))
     .then(function (data) {
       res.send(data);
-    }).catch(function (err) {
-      console.log(err);
     })
+    .catch(function (err) {
+      console.log(err);
+    });
 });
 
 // app.get("/todos", function (req, res) {
@@ -66,6 +70,9 @@ app.post("/todos", function (req, res) {
         .then(function (todos) {
           res.send(todos);
         });
+    })
+    .catch(function (err) {
+      res.send(err);
     });
 });
 
@@ -102,6 +109,9 @@ app.delete("/todos/:id", function (req, res) {
         .then(function (todos) {
           res.send(todos);
         });
+    })
+    .catch(function (err) {
+      res.send(err);
     });
 });
 

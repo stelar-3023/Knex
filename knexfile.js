@@ -3,7 +3,7 @@ module.exports = {
     client: "pg",
     connection: {
       host: "localhost",
-      port: "5433",
+      // port: "5433",
       user: "slarsen",
       password: "test_account",
       database: "todos",
