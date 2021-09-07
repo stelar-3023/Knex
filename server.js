@@ -9,6 +9,9 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get("/", function(req, res) {
+  res.send("Home Page");
+  });
 
 // Routes
 // Get all todos
