@@ -9,7 +9,6 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/", index);
 
 // Routes
 // Get all todos
